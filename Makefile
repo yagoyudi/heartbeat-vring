@@ -1,6 +1,6 @@
 # Compiler settings
 CC = gcc
-CFLAGS = -g -Wno-implicit-function-declaration
+CFLAGS = -g -Wno-implicit-function-declaration -Wno-implicit-int
 LDFLAGS = -Bstatic -lm
 
 # Source files
