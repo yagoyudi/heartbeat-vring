@@ -1,17 +1,37 @@
-all: tempo
+# Compiler settings
+CC = gcc
+CFLAGS = -g -Wno-implicit-function-declaration
+LDFLAGS = -Bstatic -lm
 
-tempo: tempo.o smpl.o rand.o
-	$(LINK.c) -o $@ -Bstatic tempo.o smpl.o rand.o -lm
+# Source files
+TASK_SRCS = tarefas/tarefa-0.c tarefas/tarefa-1.c tarefas/tarefa-2.c tarefas/tarefa-3.c tarefas/tarefa-4.c
+TASK_OBJS = $(TASK_SRCS:.c=.o)
+TASK_EXECS = $(TASK_SRCS:.c=)
 
+# Common object files
+COMMON_OBJS = smpl.o rand.o
+
+# Default target
+all: $(TASK_EXECS)
+
+# Compile task executables
+tarefas/tarefa-%: tarefas/tarefa-%.o $(COMMON_OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+# Compile task object files
+tarefas/%.o: tarefas/%.c smpl.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Compile common object files
 smpl.o: smpl.c smpl.h
-	$(COMPILE.c)  -g smpl.c
-
-tempo.o: tempo.c smpl.h
-	$(COMPILE.c) -g  tempo.c
+	$(CC) $(CFLAGS) -c smpl.c
 
 rand.o: rand.c
-	$(COMPILE.c) -g rand.c
+	$(CC) $(CFLAGS) -c rand.c
 
+# Clean target
 clean:
-	$(RM) *.o tempo relat saida
+	rm -f *.o tarefas/*.o $(TASK_EXECS)
+
+.PHONY: all clean
 
