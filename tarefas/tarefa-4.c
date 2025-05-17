@@ -9,7 +9,7 @@ typedef enum {
 	EVENT_RECOVERY = 3
 } event_type;
 
-#define TEST_INTERVAL_TIME 30
+#define TEST_INTERVAL_TIME 10
 #define TEST_AFTER_RECOVERY_TIME 1.0
 
 #define MAX_PROCESS 10000
@@ -86,8 +86,37 @@ int main(int argc, char **argv) {
 	for (i=0; i<n; i++) {
 		schedule(EVENT_TEST, TEST_INTERVAL_TIME, i); 
 	}
+
+	// 1 falho - 4 processos totais
+	schedule(EVENT_FAULT, 11.0, 1);
+	schedule(EVENT_RECOVERY, 21.0, 1);
+	// 2 falhos seguidos - 4 processos totais
 	schedule(EVENT_FAULT, 31.0, 1);
+	schedule(EVENT_FAULT, 31.0, 2);
+	schedule(EVENT_RECOVERY, 41.0, 1);
+	schedule(EVENT_RECOVERY, 41.0, 2);
+	// 2 falhos intercalados - 4 processos totais
+	schedule(EVENT_FAULT, 51.0, 1);
+	schedule(EVENT_FAULT, 51.0, 3);
 	schedule(EVENT_RECOVERY, 61.0, 1);
+	schedule(EVENT_RECOVERY, 61.0, 3);
+	// Apenas 1 vivo - 4 processos totais
+	schedule(EVENT_FAULT, 71.0, 1);
+	schedule(EVENT_FAULT, 71.0, 2);
+	schedule(EVENT_FAULT, 71.0, 3);
+	schedule(EVENT_RECOVERY, 81.0, 1);
+	schedule(EVENT_RECOVERY, 81.0, 2);
+	schedule(EVENT_RECOVERY, 81.0, 3);
+	// Todos falhos - 4 processos totais
+	schedule(EVENT_FAULT, 91.0, 0);
+	schedule(EVENT_FAULT, 91.0, 1);
+	schedule(EVENT_FAULT, 91.0, 2);
+	schedule(EVENT_FAULT, 91.0, 3);
+	// Todos vivos - 4 processos totais
+	schedule(EVENT_RECOVERY, 101.0, 0);
+	schedule(EVENT_RECOVERY, 101.0, 1);
+	schedule(EVENT_RECOVERY, 101.0, 2);
+	schedule(EVENT_RECOVERY, 101.0, 3);
 
 	// Agora vem o loop principal do simulador:
 	puts("===============================================================");

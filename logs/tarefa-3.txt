@@ -5,7 +5,7 @@
    Este programa foi executado para: N=4 processos.
            Tempo Total de Simulação = 150
 ===============================================================
--> O processo 0 testou o processo 1 correto no tempo 30.0
+-> O processo 0 testou o processo 1 correto no tempo 10.0
 
 === Estado do Processo 0 ===
 ID	Estado
@@ -16,12 +16,102 @@ ID	Estado
 3	UNKNOWN
 ========================
 
--> O processo 1 testou o processo 2 correto no tempo 30.0
+-> O processo 1 testou o processo 2 correto no tempo 10.0
 
 === Estado do Processo 1 ===
 ID	Estado
 --	------
 0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 10.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 10.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 1 falhou no tempo 11.0
+-> O processo 0 testou o processo 1 falho no tempo 20.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	UNKNOWN
+3	UNKNOWN
+========================
+
+-> O processo 0 testou o processo 2 correto no tempo 20.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 20.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 20.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 1 recuperou no tempo 21.0
+-> O processo 1 testou o processo 2 correto no tempo 22.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 30.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
 1	CORRECT
 2	CORRECT
 3	UNKNOWN
@@ -50,18 +140,8 @@ ID	Estado
 ========================
 
 -> O processo 1 falhou no tempo 31.0
--> O processo 0 testou o processo 1 falho no tempo 60.0
-
-=== Estado do Processo 0 ===
-ID	Estado
---	------
-0	CORRECT
-1	FAULT
-2	UNKNOWN
-3	UNKNOWN
-========================
-
--> O processo 0 testou o processo 2 correto no tempo 60.0
+-> O processo 2 falhou no tempo 31.0
+-> O processo 0 testou o processo 1 falho no tempo 40.0
 
 === Estado do Processo 0 ===
 ID	Estado
@@ -72,18 +152,29 @@ ID	Estado
 3	UNKNOWN
 ========================
 
--> O processo 2 testou o processo 3 correto no tempo 60.0
+-> O processo 0 testou o processo 2 falho no tempo 40.0
 
-=== Estado do Processo 2 ===
+=== Estado do Processo 0 ===
 ID	Estado
 --	------
-0	UNKNOWN
-1	UNKNOWN
-2	CORRECT
+0	CORRECT
+1	FAULT
+2	FAULT
+3	UNKNOWN
+========================
+
+-> O processo 0 testou o processo 3 correto no tempo 40.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	FAULT
 3	CORRECT
 ========================
 
--> O processo 3 testou o processo 0 correto no tempo 60.0
+-> O processo 3 testou o processo 0 correto no tempo 40.0
 
 === Estado do Processo 3 ===
 ID	Estado
@@ -94,7 +185,111 @@ ID	Estado
 3	CORRECT
 ========================
 
+-> O processo 1 recuperou no tempo 41.0
+-> O processo 2 recuperou no tempo 41.0
+-> O processo 1 testou o processo 2 correto no tempo 42.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 42.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 50.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	FAULT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 50.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 1 falhou no tempo 51.0
+-> O processo 3 falhou no tempo 51.0
+-> O processo 2 testou o processo 3 falho no tempo 52.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	UNKNOWN
+2	CORRECT
+3	FAULT
+========================
+
+-> O processo 2 testou o processo 0 correto no tempo 52.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	CORRECT
+3	FAULT
+========================
+
+-> O processo 0 testou o processo 1 falho no tempo 60.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	FAULT
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 2 correto no tempo 60.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	CORRECT
+3	CORRECT
+========================
+
 -> O processo 1 recuperou no tempo 61.0
+-> O processo 3 recuperou no tempo 61.0
+-> O processo 2 testou o processo 3 correto no tempo 62.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
 -> O processo 1 testou o processo 2 correto no tempo 62.0
 
 === Estado do Processo 1 ===
@@ -106,29 +301,7 @@ ID	Estado
 3	UNKNOWN
 ========================
 
--> O processo 0 testou o processo 1 correto no tempo 90.0
-
-=== Estado do Processo 0 ===
-ID	Estado
---	------
-0	CORRECT
-1	CORRECT
-2	CORRECT
-3	UNKNOWN
-========================
-
--> O processo 2 testou o processo 3 correto no tempo 90.0
-
-=== Estado do Processo 2 ===
-ID	Estado
---	------
-0	UNKNOWN
-1	UNKNOWN
-2	CORRECT
-3	CORRECT
-========================
-
--> O processo 3 testou o processo 0 correto no tempo 90.0
+-> O processo 3 testou o processo 0 correto no tempo 62.0
 
 === Estado do Processo 3 ===
 ID	Estado
@@ -139,7 +312,68 @@ ID	Estado
 3	CORRECT
 ========================
 
--> O processo 1 testou o processo 2 correto no tempo 92.0
+-> O processo 0 testou o processo 1 correto no tempo 70.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 1 falhou no tempo 71.0
+-> O processo 2 falhou no tempo 71.0
+-> O processo 3 falhou no tempo 71.0
+-> O processo 0 testou o processo 1 falho no tempo 80.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 2 falho no tempo 80.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	FAULT
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 3 falho no tempo 80.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	FAULT
+3	FAULT
+========================
+
+-> Todos os processos falharam, menos o processo 0 no tempo 80.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	FAULT
+3	FAULT
+========================
+
+-> O processo 1 recuperou no tempo 81.0
+-> O processo 2 recuperou no tempo 81.0
+-> O processo 3 recuperou no tempo 81.0
+-> O processo 1 testou o processo 2 correto no tempo 82.0
 
 === Estado do Processo 1 ===
 ID	Estado
@@ -150,29 +384,18 @@ ID	Estado
 3	UNKNOWN
 ========================
 
--> O processo 0 testou o processo 1 correto no tempo 120.0
-
-=== Estado do Processo 0 ===
-ID	Estado
---	------
-0	CORRECT
-1	CORRECT
-2	CORRECT
-3	UNKNOWN
-========================
-
--> O processo 2 testou o processo 3 correto no tempo 120.0
+-> O processo 2 testou o processo 3 correto no tempo 82.0
 
 === Estado do Processo 2 ===
 ID	Estado
 --	------
-0	UNKNOWN
+0	CORRECT
 1	UNKNOWN
 2	CORRECT
 3	CORRECT
 ========================
 
--> O processo 3 testou o processo 0 correto no tempo 120.0
+-> O processo 3 testou o processo 0 correto no tempo 82.0
 
 === Estado do Processo 3 ===
 ID	Estado
@@ -181,6 +404,124 @@ ID	Estado
 1	UNKNOWN
 2	UNKNOWN
 3	CORRECT
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 90.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	FAULT
+3	FAULT
+========================
+
+-> O processo 0 falhou no tempo 91.0
+-> O processo 1 falhou no tempo 91.0
+-> O processo 2 falhou no tempo 91.0
+-> O processo 3 falhou no tempo 91.0
+-> O processo 0 recuperou no tempo 101.0
+-> O processo 1 recuperou no tempo 101.0
+-> O processo 2 recuperou no tempo 101.0
+-> O processo 3 recuperou no tempo 101.0
+-> O processo 0 testou o processo 1 correto no tempo 102.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	FAULT
+3	FAULT
+========================
+
+-> O processo 1 testou o processo 2 correto no tempo 102.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 102.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 102.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 112.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	FAULT
+3	FAULT
+========================
+
+-> O processo 1 testou o processo 2 correto no tempo 112.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 112.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 112.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 122.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	FAULT
+3	FAULT
 ========================
 
 -> O processo 1 testou o processo 2 correto no tempo 122.0
@@ -194,14 +535,124 @@ ID	Estado
 3	UNKNOWN
 ========================
 
--> O processo 0 testou o processo 1 correto no tempo 150.0
+-> O processo 2 testou o processo 3 correto no tempo 122.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 122.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 132.0
 
 === Estado do Processo 0 ===
 ID	Estado
 --	------
 0	CORRECT
 1	CORRECT
+2	FAULT
+3	FAULT
+========================
+
+-> O processo 1 testou o processo 2 correto no tempo 132.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
 2	CORRECT
 3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 132.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 132.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 142.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	FAULT
+3	FAULT
+========================
+
+-> O processo 1 testou o processo 2 correto no tempo 142.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 142.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 142.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 152.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	FAULT
+3	FAULT
 ========================
 
