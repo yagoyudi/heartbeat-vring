@@ -1,0 +1,207 @@
+===============================================================
+           Sistemas Distribuídos Prof. Elias
+          LOG do Trabalho prático 0, Tarefa 3
+      Implementação do teste em anel entre processos
+   Este programa foi executado para: N=4 processos.
+           Tempo Total de Simulação = 150
+===============================================================
+-> O processo 0 testou o processo 1 correto no tempo 30.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	UNKNOWN
+3	UNKNOWN
+========================
+
+-> O processo 1 testou o processo 2 correto no tempo 30.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 30.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 30.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 1 falhou no tempo 31.0
+-> O processo 0 testou o processo 1 falho no tempo 60.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	UNKNOWN
+3	UNKNOWN
+========================
+
+-> O processo 0 testou o processo 2 correto no tempo 60.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	FAULT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 60.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 60.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 1 recuperou no tempo 61.0
+-> O processo 1 testou o processo 2 correto no tempo 62.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 90.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 90.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 90.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 1 testou o processo 2 correto no tempo 92.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 120.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 2 testou o processo 3 correto no tempo 120.0
+
+=== Estado do Processo 2 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	UNKNOWN
+2	CORRECT
+3	CORRECT
+========================
+
+-> O processo 3 testou o processo 0 correto no tempo 120.0
+
+=== Estado do Processo 3 ===
+ID	Estado
+--	------
+0	CORRECT
+1	UNKNOWN
+2	UNKNOWN
+3	CORRECT
+========================
+
+-> O processo 1 testou o processo 2 correto no tempo 122.0
+
+=== Estado do Processo 1 ===
+ID	Estado
+--	------
+0	UNKNOWN
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+
+-> O processo 0 testou o processo 1 correto no tempo 150.0
+
+=== Estado do Processo 0 ===
+ID	Estado
+--	------
+0	CORRECT
+1	CORRECT
+2	CORRECT
+3	UNKNOWN
+========================
+

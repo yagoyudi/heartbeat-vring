@@ -1,0 +1,26 @@
+===============================================================
+           Sistemas Distribuídos Prof. Elias
+          LOG do Trabalho prático 0, Tarefa 0
+      Digitar, compilar e executar o programa tempo.c
+   Este programa foi executado para: N=4 processos.
+           Tempo Total de Simulação = 150
+===============================================================
+proc 0 test: 30.0
+proc 1 test: 30.0
+proc 2 test: 30.0
+proc 3 test: 30.0
+proc 1 fault: 31.0
+proc 0 test: 60.0
+proc 2 test: 60.0
+proc 3 test: 60.0
+proc 1 recovery: 61.0
+proc 1 test: 62.0
+proc 0 test: 90.0
+proc 2 test: 90.0
+proc 3 test: 90.0
+proc 1 test: 92.0
+proc 0 test: 120.0
+proc 2 test: 120.0
+proc 3 test: 120.0
+proc 1 test: 122.0
+proc 0 test: 150.0
