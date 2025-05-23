@@ -3,9 +3,9 @@
 #include "smpl.h"
 
 #define MAX_PROCESS 10000
-#define MAX_SIMULATION_TIME 50
-#define HEARTBEAT_INTERVAL 10.0    // Intervalo entre heartbeats
-#define TIMEOUT_INTERVAL 20.0      // Timeout para detectar falha
+#define MAX_SIMULATION_TIME 90
+#define HEARTBEAT_INTERVAL 5.0    // Intervalo entre heartbeats
+#define TIMEOUT_INTERVAL 10.0      // Timeout para detectar falha
 #define RECOVERY_HEARTBEAT_DELAY 1.0
 
 typedef enum {
@@ -32,32 +32,7 @@ typedef struct{
 process *proc;
 
 void print_state(int token, int n) {
-    printf("\n=== Estado do Processo %d ===\n", token);
-    printf("ID\tEstado\n");
-    printf("--\t------\n");
-    
-    for (int i = 0; i < n; i++) {
-        const char *state_name;
-		switch (proc[token].state[i]) {
-			case STATE_UNKNOWN:
-				state_name = "UNKNOWN";
-				break;
-			case STATE_CORRECT:
-				state_name = "CORRECT";
-				break;
-			case STATE_FAULT:
-				state_name = "FAULT";
-				break;
-			default:
-				state_name = "UNKNOWN";
-				break;
-		}
-            
-        printf("%d\t%s\n", i, state_name);
-    }
-    printf("Monitorando: %d, Monitorado por: %d\n", proc[token].next, proc[token].prev);
-    printf("Último heartbeat recebido: %4.1f\n", proc[token].last_heartbeat);
-    printf("========================\n\n");
+    printf("  Processo %d -> Monitorando: %d, Monitorado por: %d\n",token, proc[token].next, proc[token].prev);
 }
 
 // Trata o recebimento do heartbeat do processo @token.
@@ -89,7 +64,7 @@ void handle_event_heartbeat(int event, int token, int n) {
 		curr_monitor->state[token] = STATE_CORRECT;
 	}
 
-	printf("> HEARTBEAT: O processo %d enviou heartbeat para o processo %d no tempo %4.1f\n", token, curr->prev, time());
+	printf("> ❤️ HEARTBEAT: %d -> %d [tempo %4.1f]\n", token, curr->prev, time());
 
     // Agenda o próximo heartbeat:
     schedule(EVENT_HEARTBEAT_TIMEOUT, HEARTBEAT_INTERVAL, token);
@@ -106,7 +81,7 @@ void handle_event_timeout(int event, int token, int n) {
 
 	// Se o processo que o processo atual testa falhou:
 	if ((curr->last_heartbeat + TIMEOUT_INTERVAL) < time()) {
-		printf("> TESTE: O processo %d detectou falha no processo %d no tempo %4.1f\n", token, curr->next, time());
+		printf("> ℹ️❌ TESTE: %d -> %d [tempo %4.1f]\n", token, curr->next, time());
 
 		// Atualiza o estado do processo que está monitorando:
 		curr->state[curr->next] = STATE_FAULT;
@@ -118,7 +93,7 @@ void handle_event_timeout(int event, int token, int n) {
 		curr->next = proc[curr->next].next;
 		proc[curr->next].prev = token;
 	} else {
-		printf("> TESTE: O processo %d detectou que o processo %d está correto no tempo %4.1f\n", token, curr->next, time());
+		printf("> ℹ️ TESTE: %d -> %d [tempo %4.1f]\n", token, curr->next, time());
 		curr->state[curr->next] = STATE_CORRECT;
 	}
 
@@ -128,12 +103,28 @@ void handle_event_timeout(int event, int token, int n) {
 
 void handle_event_fault(int event, int token) {
     int r = request(proc[token].id, token, 0);
-    printf("> FALHA: O processo %d falhou no tempo %4.1f\n", token, time());
+    printf("> ❌ FALHA: %d [tempo %4.1f]\n", token, time());
 }
 
 void handle_event_recovery(int event, int token, int n) {
     release(proc[token].id, token);
-    printf("> RECUPERACAO: O processo %d recuperou no tempo %4.1f\n", token, time());
+    printf("> 🔄 RECUPERACAO: %d [tempo %4.1f]\n", token, time());
+
+   // Se o processo atual está monitorando o processo que falhou, então
+   // precisamos arrumar os "ponteiros" para novamente testá-lo:
+
+   int prev_id = token;
+
+   do {
+    prev_id = (prev_id - 1 + n) % n;
+
+   } while (status(proc[prev_id].id) != 0);
+
+   if (prev_id != token) {
+        proc[prev_id].next = token;
+        proc[token].prev = prev_id;
+        proc[token+1].prev = token;
+   }
     
     // Reinicia os heartbeats e verificações de timeout para este processo
     schedule(EVENT_HEARTBEAT_TIMEOUT, RECOVERY_HEARTBEAT_DELAY, token);
@@ -173,12 +164,13 @@ void setup_events(int n) {
         schedule(EVENT_TEST_TIMEOUT, TIMEOUT_INTERVAL, i);
     }
     
-	// Teste de falha e recuperação:
-    schedule(EVENT_FAULT, 0.0, 2);
-    schedule(EVENT_FAULT, 40.0, 3);
-    schedule(EVENT_FAULT, 80.0, 4);
-    schedule(EVENT_FAULT, 120.0, 5);
-    schedule(EVENT_RECOVERY, 140.0, 4);
+    schedule(EVENT_FAULT, 11.0, 0);
+    schedule(EVENT_RECOVERY, 31.0, 0);
+    // 2 falhos seguidos - 4 processos totais
+    schedule(EVENT_FAULT, 41.0, 1);
+    schedule(EVENT_FAULT, 41.0, 2);
+    schedule(EVENT_RECOVERY, 61.0, 1);
+    schedule(EVENT_RECOVERY, 61.0, 2);
 }
 
 int main(int argc, char **argv) {

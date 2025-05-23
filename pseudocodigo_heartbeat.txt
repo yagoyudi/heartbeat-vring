@@ -1,0 +1,117 @@
+HeartRing: Algoritmo Detector de Falhas em Anel Virtual (VRing) Baseado em Heartbeat  - Processo i
+
+// Estruturas de dados
+Estado: array[0..n-1] de {UNKNOWN, CORRECT, FAULT}
+next: ID do processo que este processo monitora
+prev: ID do processo que monitora este processo  
+last_heartbeat: timestamp do último heartbeat recebido do processo monitorado
+HEARTBEAT_INTERVAL: intervalo entre heartbeats
+TIMEOUT_INTERVAL: timeout para detectar falha
+
+// Inicialização
+Init:
+    Estado[i] ← CORRECT
+    for all j ≠ i: Estado[j] ← UNKNOWN
+    next ← (i + 1) mod n
+    prev ← (i - 1 + n) mod n
+    last_heartbeat ← 0
+    schedule(EVENT_HEARTBEAT, HEARTBEAT_INTERVAL)
+    schedule(EVENT_TEST_TIMEOUT, TIMEOUT_INTERVAL)
+
+// Envio de Heartbeat (baseado em handle_event_heartbeat)
+Upon HEARTBEAT_INTERVAL expires:
+    if (processo i está ativo) then
+        monitor ← processo prev
+        
+        // Verifica se o anel precisa ser reconfigurado após recuperação
+        if (monitor.next ≠ i) then
+            // Reconstrói o anel virtual
+            último_monitorado ← monitor.next
+            monitor.next ← i
+            processo[último_monitorado].prev ← i
+            next ← último_monitorado
+        end if
+        
+        // Atualiza estado no monitor se ele estiver ativo
+        if (monitor está ativo) then
+            monitor.last_heartbeat ← tempo_atual()
+            monitor.Estado[i] ← CORRECT
+        end if
+        
+        send(heartbeat_i) to prev
+        schedule(EVENT_HEARTBEAT, HEARTBEAT_INTERVAL)
+    end if
+
+// Verificação de Timeout (baseado em handle_event_timeout)
+Upon TEST_TIMEOUT expires:
+    if (processo i está ativo) then
+        processo_monitorado ← next
+        
+        // Verifica se houve timeout
+        if (last_heartbeat + TIMEOUT_INTERVAL < tempo_atual()) then
+            // Timeout detectado - processo falhou
+            Estado[processo_monitorado] ← FAULT
+            
+            // Rerouting: remove o processo falho do anel
+            next ← processo[processo_monitorado].next
+            processo[next].prev ← i
+            
+            log("FALHA DETECTADA:", processo_monitorado)
+        else
+            // Heartbeat recebido dentro do prazo
+            Estado[processo_monitorado] ← CORRECT
+            log("TESTE OK:", processo_monitorado)
+        end if
+        
+        schedule(EVENT_TEST_TIMEOUT, TIMEOUT_INTERVAL)
+    end if
+
+// Tratamento de Falha do Próprio Processo
+Upon FAULT_EVENT(i):
+    marcar processo i como falho
+    log("PROCESSO FALHOU:", i)
+
+// Recuperação de Processo (baseado em handle_event_recovery)
+Upon RECOVERY_EVENT(i):
+    reativar processo i
+    
+    // Encontra o processo anterior ativo para reintegrar no anel
+    prev_ativo ← i
+    repeat
+        prev_ativo ← (prev_ativo - 1 + n) mod n
+    until (processo prev_ativo está ativo)
+    
+    if (prev_ativo ≠ i) then
+        // Reintegra no anel virtual
+        processo[prev_ativo].next ← i
+        prev ← prev_ativo
+        next ← processo[prev_ativo + 1].id // próximo processo
+        processo[next].prev ← i
+    end if
+    
+    // Reinicia os eventos de heartbeat e timeout
+    schedule(EVENT_HEARTBEAT, RECOVERY_HEARTBEAT_DELAY)
+    schedule(EVENT_TEST_TIMEOUT, TIMEOUT_INTERVAL)
+    
+    log("PROCESSO RECUPERADO:", i)
+
+// Consulta do Detector de Falhas
+Upon FailureDetector_query():
+    Suspeitos ← {}
+    for all j ∈ {0..n-1} - {i}:
+        if (Estado[j] = FAULT) then
+            Suspeitos ← Suspeitos ∪ {j}
+        end if
+    end for
+    return Suspeitos
+
+// Estrutura do Anel Virtual:
+// - Cada processo i monitora o processo (i+1) mod n
+// - Cada processo i é monitorado pelo processo (i-1+n) mod n
+// - Quando um processo falha, é removido do anel e os ponteiros são ajustados
+// - Quando um processo se recupera, é reintegrado ao anel
+
+// Estados possíveis:
+// UNKNOWN: estado inicial/desconhecido
+// CORRECT: processo funcionando corretamente
+// FAULT: processo com falha detectada 
