@@ -3,7 +3,7 @@
 #include "smpl.h"
 
 #define MAX_PROCESS 10000
-#define MAX_SIMULATION_TIME 90
+#define MAX_SIMULATION_TIME 160
 #define HEARTBEAT_INTERVAL 5.0    // Intervalo entre heartbeats
 #define TIMEOUT_INTERVAL 10.0      // Timeout para detectar falha
 #define RECOVERY_HEARTBEAT_DELAY 1.0
@@ -81,7 +81,7 @@ void handle_event_timeout(int event, int token, int n) {
 
 	// Se o processo que o processo atual testa falhou:
 	if ((curr->last_heartbeat + TIMEOUT_INTERVAL) < time()) {
-		printf("> ℹ️❌ TESTE: %d -> %d [tempo %4.1f]\n", token, curr->next, time());
+		printf("> ℹ️❌ TESTE - DETECAO DE FALHA: %d -> %d [tempo %4.1f]\n", token, curr->next, time());
 
 		// Atualiza o estado do processo que está monitorando:
 		curr->state[curr->next] = STATE_FAULT;
@@ -163,14 +163,38 @@ void setup_events(int n) {
         schedule(EVENT_HEARTBEAT_TIMEOUT, HEARTBEAT_INTERVAL, i);
         schedule(EVENT_TEST_TIMEOUT, TIMEOUT_INTERVAL, i);
     }
-    
-    schedule(EVENT_FAULT, 11.0, 0);
-    schedule(EVENT_RECOVERY, 31.0, 0);
-    // 2 falhos seguidos - 4 processos totais
-    schedule(EVENT_FAULT, 41.0, 1);
-    schedule(EVENT_FAULT, 41.0, 2);
-    schedule(EVENT_RECOVERY, 61.0, 1);
-    schedule(EVENT_RECOVERY, 61.0, 2);
+
+	// 2 falho - 5 processos totais
+	schedule(EVENT_FAULT, 11.0, 1);
+	schedule(EVENT_RECOVERY, 31.0, 1);
+	// 2 falhos seguidos - 5 processos totais
+	schedule(EVENT_FAULT, 41.0, 1);
+	schedule(EVENT_FAULT, 41.0, 2);
+	schedule(EVENT_RECOVERY, 61.0, 1);
+	schedule(EVENT_RECOVERY, 61.0, 2);
+	// 2 falhos intercalados - 5 processos totais
+	schedule(EVENT_FAULT, 71.0, 1);
+	schedule(EVENT_FAULT, 71.0, 3);
+	schedule(EVENT_RECOVERY, 91.0, 1);
+	schedule(EVENT_RECOVERY, 91.0, 3);
+	// Apenas 2 vivos - 5 processos totais
+	schedule(EVENT_FAULT, 101.0, 1);
+	schedule(EVENT_FAULT, 101.0, 2);
+	schedule(EVENT_FAULT, 101.0, 3);
+	schedule(EVENT_RECOVERY, 121.0, 1);
+	schedule(EVENT_RECOVERY, 121.0, 2);
+	schedule(EVENT_RECOVERY, 121.0, 3);
+	// Todos os mortos - 5 processos totais
+	schedule(EVENT_FAULT, 131.0, 0);
+	schedule(EVENT_FAULT, 131.0, 1);
+	schedule(EVENT_FAULT, 131.0, 2);
+	schedule(EVENT_FAULT, 131.0, 3);
+	schedule(EVENT_FAULT, 131.0, 4);
+	// Todos vivos - 5 processos totais
+	schedule(EVENT_RECOVERY, 151.0, 0);
+	schedule(EVENT_RECOVERY, 151.0, 1);
+	schedule(EVENT_RECOVERY, 151.0, 2);
+	schedule(EVENT_RECOVERY, 151.0, 3);
 }
 
 int main(int argc, char **argv) {
@@ -198,7 +222,7 @@ int main(int argc, char **argv) {
     // Loop principal do simulador:
     puts("===============================================================");
     puts("           Sistemas Distribuídos Prof. Elias");
-    puts("          LOG do Trabalho prático 0, Tarefa 4");
+    puts("          LOG do Trabalho prático 0");
     puts("     Implementação de Heartbeats em Anel Virtual (VRing)");
     printf("   Este programa foi executado para: N=%d processos.\n", n); 
     printf("           Tempo Total de Simulação = %d\n", MAX_SIMULATION_TIME);

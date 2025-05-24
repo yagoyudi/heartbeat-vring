@@ -3,63 +3,367 @@
 	<head>
 		<title>Trabalho prático de Sistemas Distribuídos</title>
 		<meta charset="utf-8">
-		<meta name="color-scheme" content="light dark">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			:root {
+				--bg-color: #fafafa;
+				--text-color: #333;
+				--accent-color: #007acc;
+				--border-color: #e0e0e0;
+				--code-bg: #f5f5f5;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				color: var(--text-color);
+				background-color: var(--bg-color);
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 2rem 1rem;
+			}
+
+			header {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+
+			h1 {
+				font-size: 2.5rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+				color: var(--accent-color);
+			}
+
+			h2 {
+				font-size: 1.8rem;
+				font-weight: 500;
+				margin: 2.5rem 0 1rem 0;
+				color: var(--accent-color);
+			}
+
+			h3 {
+				font-size: 1.3rem;
+				font-weight: 500;
+				margin: 1.5rem 0 0.75rem 0;
+			}
+
+			p {
+				margin-bottom: 1rem;
+			}
+
+			ul {
+				margin-left: 1.5rem;
+				margin-bottom: 1rem;
+			}
+
+			li {
+				margin-bottom: 0.3rem;
+			}
+
+			a {
+				color: var(--accent-color);
+				text-decoration: none;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			.section {
+				margin-bottom: 2.5rem;
+			}
+
+			.task-list {
+				display: grid;
+				gap: 1rem;
+				margin: 1rem 0;
+			}
+
+			.task-item {
+				background: white;
+				border: 1px solid var(--border-color);
+				border-radius: 6px;
+				padding: 1rem;
+				transition: box-shadow 0.2s;
+			}
+
+			.task-item:hover {
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+			}
+
+			.task-links {
+				margin-top: 0.5rem;
+			}
+
+			.task-links a {
+				display: inline-block;
+				margin-right: 1rem;
+				padding: 0.25rem 0.5rem;
+				background-color: var(--code-bg);
+				border-radius: 3px;
+				font-size: 0.9rem;
+			}
+
+			.algorithm-info {
+				background: white;
+				border: 1px solid var(--border-color);
+				border-radius: 6px;
+				padding: 1.5rem;
+				margin: 1rem 0;
+			}
+
+			.model-list {
+				list-style: none;
+				margin-left: 0;
+			}
+
+			.model-list li {
+				padding: 0.2rem 0;
+			}
+
+			.pseudocode {
+				background: var(--code-bg);
+				border: 1px solid var(--border-color);
+				border-radius: 6px;
+				padding: 1.5rem;
+				margin: 1rem 0;
+				overflow-x: auto;
+			}
+
+			.pseudocode pre {
+				font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+				font-size: 0.85rem;
+				line-height: 1.4;
+				margin: 0;
+				white-space: pre-wrap;
+			}
+
+			.link-button {
+				display: inline-block;
+				color: var(--accent-color);
+				text-decoration: none;
+				border: 1px solid var(--border-color);
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				transition: background-color 0.2s;
+				margin: 0.5rem 0.5rem 0.5rem 0;
+			}
+
+			.link-button:hover {
+				background-color: var(--code-bg);
+				text-decoration: none;
+			}
+
+			footer {
+				text-align: center;
+				margin-top: 3rem;
+				padding-top: 2rem;
+				border-top: 1px solid var(--border-color);
+				color: #666;
+			}
+
+			@media (max-width: 600px) {
+				body {
+					padding: 1rem 0.5rem;
+				}
+				
+				h1 {
+					font-size: 2rem;
+				}
+				
+				.task-links a {
+					display: block;
+					margin: 0.25rem 0;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<header>
 			<h1>Trabalho prático de Sistemas Distribuídos</h1>
 		</header>
-		<section>
-			<h2>Trabalho prático 0: Roteiro de Aprendizado Prático de Simulação</h2>
-			<h3>Tarefa 0</h3>
-			<ul>
-				<li>Versão inicial do código.</li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-0.c" target="_blank">Código</a></li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-0.txt" target="_blank">Log</a></li>
-			</ul>
-			<h3>Tarefa 1</h3>
-			<ul>
-				<li>Nessa versão, cada processo testa o seguinte no anel.</li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-1.c" target="_blank">Código</a></li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-1.txt" target="_blank">Log</a></li>
-			</ul>
-			<h3>Tarefa 2</h3>
-			<ul>
-				<li>Nessa versão, cada processo correto executa testes até achar outro processo correto.</li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-2.c" target="_blank">Código</a></li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-2.txt" target="_blank">Log</a></li>
-			</ul>
-			<h3>Tarefa 3</h3>
-			<ul>
-				<li>Nessa versão, cada processo mantém localmente um vetor state[N].</li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-3.c" target="_blank">Código</a></li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-3.txt" target="_blank">Log</a></li>
-			</ul>
-			<h3>Tarefa 4</h3>
-			<ul>
-				<li>Nessa versão, quando um processo correto testa outro processo correto, ele obtém as informações do estado dos demais processos do sistema.</li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-4.c" target="_blank">Código</a></li>
-				<li><a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-4.txt" target="_blank">Log</a></li>
-			</ul>
-		</section>
-		<section>
-			<h2>Trabalho prático: Um Detector de Falhas em Anel Baseado em Heartbeats</h2>
-			<ul>
-				<li>Nome do algoritmo: <strong>HeartRing</strong></li>
-				<li>
-					Modelo do sistema:
-					<ul>
-						<li>Estático</li>
-						<li>Fully-connected</li>
-						<li>Assíncrono</li>
-						<li>Comunicação baseada em troca de mensagens</li>
+
+		<main>
+			<section class="section">
+				<h2>Trabalho prático 0: Roteiro de Aprendizado Prático de Simulação</h2>
+				
+				<div class="task-list">
+					<div class="task-item">
+						<h3>Tarefa 0</h3>
+						<p>Versão inicial do código.</p>
+						<div class="task-links">
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-0.c" target="_blank">Código</a>
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-0.txt" target="_blank">Log</a>
+						</div>
+					</div>
+
+					<div class="task-item">
+						<h3>Tarefa 1</h3>
+						<p>Nessa versão, cada processo testa o seguinte no anel.</p>
+						<div class="task-links">
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-1.c" target="_blank">Código</a>
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-1.txt" target="_blank">Log</a>
+						</div>
+					</div>
+
+					<div class="task-item">
+						<h3>Tarefa 2</h3>
+						<p>Nessa versão, cada processo correto executa testes até achar outro processo correto.</p>
+						<div class="task-links">
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-2.c" target="_blank">Código</a>
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-2.txt" target="_blank">Log</a>
+						</div>
+					</div>
+
+					<div class="task-item">
+						<h3>Tarefa 3</h3>
+						<p>Nessa versão, cada processo mantém localmente um vetor state[N].</p>
+						<div class="task-links">
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-3.c" target="_blank">Código</a>
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-3.txt" target="_blank">Log</a>
+						</div>
+					</div>
+
+					<div class="task-item">
+						<h3>Tarefa 4</h3>
+						<p>Nessa versão, quando um processo correto testa outro processo correto, ele obtém as informações do estado dos demais processos do sistema.</p>
+						<div class="task-links">
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/tarefas/tarefa-4.c" target="_blank">Código</a>
+							<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/tarefa-4.txt" target="_blank">Log</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<h2>Trabalho prático: Um Detector de Falhas em Anel Baseado em Heartbeats</h2>
+				
+				<div class="algorithm-info">
+					<h3>Algoritmo HeartRing</h3>
+					
+					<p><strong>Modelo do sistema:</strong></p>
+					<ul class="model-list">
+						<li>• Estático</li>
+						<li>• Fully-connected</li>
+						<li>• Assíncrono</li>
+						<li>• Comunicação baseada em troca de mensagens</li>
 					</ul>
-				</li>
-				<li>Explicação do algoritmo: <a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/pseudocodigo_heartbeat.txt" target="_blank">Pseudocódigo</a></li>
-			</ul>
-		</section>
+
+					<div style="margin-top: 1rem;">
+						<a href="explicacao-heartring.html" class="link-button">📖 Explicação Detalhada</a>
+						<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/pseudocodigo_heartbeat.txt" target="_blank" class="link-button">📄 Pseudocódigo (arquivo)</a>
+						<a href="https://raw.githubusercontent.com/yagoyudi/heartbeat-vring/refs/heads/main/logs/heartbeat.txt" target="_blank" class="link-button">📄 Log (arquivo)</a>
+					</div>
+				</div>
+
+				<h3>Pseudocódigo do Algoritmo</h3>
+				<div class="pseudocode">
+					<pre>HeartRing: Algoritmo Detector de Falhas em Anel Virtual (VRing) Baseado em Heartbeat  - Processo i
+
+// Estruturas de dados
+Estado: array[0..n-1] de {UNKNOWN, CORRECT, FAULT}
+next: ID do processo que este processo monitora
+prev: ID do processo que monitora este processo  
+last_heartbeat: timestamp do último heartbeat recebido do processo monitorado
+HEARTBEAT_INTERVAL: intervalo entre heartbeats
+TIMEOUT_INTERVAL: timeout para detectar falha
+
+// Inicialização
+Init:
+    Estado[i] ← CORRECT
+    for all j ≠ i: Estado[j] ← UNKNOWN
+    next ← (i + 1) mod n
+    prev ← (i - 1 + n) mod n
+    last_heartbeat ← 0
+    schedule(EVENT_HEARTBEAT, HEARTBEAT_INTERVAL)
+    schedule(EVENT_TEST_TIMEOUT, TIMEOUT_INTERVAL)
+
+// Envio de Heartbeat (baseado em handle_event_heartbeat)
+Upon HEARTBEAT_INTERVAL expires:
+    if (processo i está ativo) then
+        monitor ← processo prev
+        
+        // Verifica se o anel precisa ser reconfigurado após recuperação
+        if (monitor.next ≠ i) then
+            // Reconstrói o anel virtual
+            último_monitorado ← monitor.next
+            monitor.next ← i
+            processo[último_monitorado].prev ← i
+            next ← último_monitorado
+        end if
+        
+        // Atualiza estado no monitor se ele estiver ativo
+        if (monitor está ativo) then
+            monitor.last_heartbeat ← tempo_atual()
+            monitor.Estado[i] ← CORRECT
+        end if
+        
+        send(heartbeat_i) to prev
+        schedule(EVENT_HEARTBEAT, HEARTBEAT_INTERVAL)
+    end if
+
+// Verificação de Timeout (baseado em handle_event_timeout)
+Upon TEST_TIMEOUT expires:
+    if (processo i está ativo) then
+        processo_monitorado ← next
+        
+        // Verifica se houve timeout
+        if (last_heartbeat + TIMEOUT_INTERVAL < tempo_atual()) then
+            // Timeout detectado - processo falhou
+            Estado[processo_monitorado] ← FAULT
+            
+            // Rerouting: remove o processo falho do anel
+            next ← processo[processo_monitorado].next
+            processo[next].prev ← i
+        else
+            // Heartbeat recebido dentro do prazo
+            Estado[processo_monitorado] ← CORRECT
+        end if
+        
+        schedule(EVENT_TEST_TIMEOUT, TIMEOUT_INTERVAL)
+    end if
+
+// Recuperação de Processo (baseado em handle_event_recovery)
+Upon RECOVERY_EVENT(i):
+    reativar processo i
+    
+    // Encontra o processo anterior ativo para reintegrar no anel
+    prev_ativo ← i
+    repeat
+        prev_ativo ← (prev_ativo - 1 + n) mod n
+    until (processo prev_ativo está ativo)
+    
+    if (prev_ativo ≠ i) then
+        // Reintegra no anel virtual
+        processo[prev_ativo].next ← i
+        prev ← prev_ativo
+        next ← processo[prev_ativo + 1].id // próximo processo
+        processo[next].prev ← i
+    end if
+    
+    // Reinicia os eventos de heartbeat e timeout
+    schedule(EVENT_HEARTBEAT, RECOVERY_HEARTBEAT_DELAY)
+    schedule(EVENT_TEST_TIMEOUT, TIMEOUT_INTERVAL)
+    
+
+// Estrutura do Anel Virtual:
+// - Cada processo i monitora o processo (i+1) mod n
+// - Cada processo i é monitorado pelo processo (i-1+n) mod n
+// - Quando um processo falha, é removido do anel e os ponteiros são ajustados
+// - Quando um processo se recupera, é reintegrado ao anel
+
+				</div>
+			</section>
+		</main>
+
 		<footer>
-			<hr>
 			<p>Feito por Eric Kivel (GRR20220069) e Yago Furuta (GRR20221231).</p>
 		</footer>
 	</body>

@@ -1,0 +1,379 @@
+===============================================================
+           Sistemas Distribuídos Prof. Elias
+          LOG do Trabalho prático 0
+     Implementação de Heartbeats em Anel Virtual (VRing)
+   Este programa foi executado para: N=5 processos.
+           Tempo Total de Simulação = 160
+===============================================================
+> ❤️ HEARTBEAT: 0 -> 4 [tempo  5.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 1 -> 0 [tempo  5.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo  5.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo  5.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo  5.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ℹ️ TESTE: 0 -> 1 [tempo 10.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ℹ️ TESTE: 1 -> 2 [tempo 10.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ℹ️ TESTE: 2 -> 3 [tempo 10.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ℹ️ TESTE: 3 -> 4 [tempo 10.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 4 -> 0 [tempo 10.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 10.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 10.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 10.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 10.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 10.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❌ FALHA: 1 [tempo 11.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 15.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 15.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 15.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 15.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ℹ️ TESTE: 0 -> 1 [tempo 20.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ℹ️ TESTE: 2 -> 3 [tempo 20.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ℹ️ TESTE: 3 -> 4 [tempo 20.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 4 -> 0 [tempo 20.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 20.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 20.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 20.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 20.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 25.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 25.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 25.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 25.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ℹ️❌ TESTE - DETECAO DE FALHA: 0 -> 1 [tempo 30.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ℹ️ TESTE: 2 -> 3 [tempo 30.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 0
+> ℹ️ TESTE: 3 -> 4 [tempo 30.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 4 -> 0 [tempo 30.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 30.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ❤️ HEARTBEAT: 2 -> 0 [tempo 30.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 0
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 30.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 30.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> 🔄 RECUPERACAO: 1 [tempo 31.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 32.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 35.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 35.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 35.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 35.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 37.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ℹ️ TESTE: 0 -> 1 [tempo 40.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ℹ️ TESTE: 2 -> 3 [tempo 40.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ℹ️ TESTE: 3 -> 4 [tempo 40.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 4 -> 0 [tempo 40.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 40.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 40.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 40.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 40.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❌ FALHA: 1 [tempo 41.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❌ FALHA: 2 [tempo 41.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 45.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 45.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 45.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ℹ️❌ TESTE - DETECAO DE FALHA: 0 -> 1 [tempo 50.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+  Processo 2 -> Monitorando: 3, Monitorado por: 0
+> ℹ️ TESTE: 3 -> 4 [tempo 50.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 4 -> 0 [tempo 50.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 50.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 50.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 50.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 55.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 55.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 55.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ℹ️❌ TESTE - DETECAO DE FALHA: 0 -> 2 [tempo 60.0]
+  Processo 0 -> Monitorando: 3, Monitorado por: 4
+> ℹ️ TESTE: 3 -> 4 [tempo 60.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 0
+> ℹ️ TESTE: 4 -> 0 [tempo 60.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 60.0]
+  Processo 0 -> Monitorando: 3, Monitorado por: 4
+> ❤️ HEARTBEAT: 3 -> 0 [tempo 60.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 0
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 60.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> 🔄 RECUPERACAO: 1 [tempo 61.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> 🔄 RECUPERACAO: 2 [tempo 61.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 62.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 62.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 65.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 65.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 65.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 67.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 67.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ℹ️ TESTE: 0 -> 1 [tempo 70.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ℹ️ TESTE: 3 -> 4 [tempo 70.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 4 -> 0 [tempo 70.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 70.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 70.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 70.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❌ FALHA: 1 [tempo 71.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❌ FALHA: 3 [tempo 71.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ℹ️ TESTE: 2 -> 3 [tempo 71.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 72.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 75.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 75.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 77.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ℹ️❌ TESTE - DETECAO DE FALHA: 0 -> 1 [tempo 80.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 4 -> 0 [tempo 80.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 80.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 80.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ℹ️❌ TESTE - DETECAO DE FALHA: 2 -> 3 [tempo 81.0]
+  Processo 2 -> Monitorando: 4, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 0 [tempo 82.0]
+  Processo 2 -> Monitorando: 4, Monitorado por: 0
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 85.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 2 [tempo 85.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 2
+> ❤️ HEARTBEAT: 2 -> 0 [tempo 87.0]
+  Processo 2 -> Monitorando: 4, Monitorado por: 0
+> ℹ️ TESTE: 0 -> 2 [tempo 90.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ℹ️ TESTE: 4 -> 0 [tempo 90.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 2
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 90.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 2 [tempo 90.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 2
+> 🔄 RECUPERACAO: 1 [tempo 91.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> 🔄 RECUPERACAO: 3 [tempo 91.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 2 -> 3 [tempo 91.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 92.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 92.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 92.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 95.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 95.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 97.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 97.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 97.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 0 -> 1 [tempo 100.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ℹ️ TESTE: 4 -> 0 [tempo 100.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 100.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 100.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❌ FALHA: 1 [tempo 101.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❌ FALHA: 2 [tempo 101.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❌ FALHA: 3 [tempo 101.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 105.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 105.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ℹ️❌ TESTE - DETECAO DE FALHA: 0 -> 1 [tempo 110.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ℹ️ TESTE: 4 -> 0 [tempo 110.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 110.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 110.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 115.0]
+  Processo 0 -> Monitorando: 2, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 115.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ℹ️❌ TESTE - DETECAO DE FALHA: 0 -> 2 [tempo 120.0]
+  Processo 0 -> Monitorando: 3, Monitorado por: 4
+> ℹ️ TESTE: 4 -> 0 [tempo 120.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 120.0]
+  Processo 0 -> Monitorando: 3, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 120.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> 🔄 RECUPERACAO: 1 [tempo 121.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> 🔄 RECUPERACAO: 2 [tempo 121.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> 🔄 RECUPERACAO: 3 [tempo 121.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 122.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 122.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 122.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 125.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 125.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 127.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 127.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 127.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 0 -> 1 [tempo 130.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ℹ️ TESTE: 4 -> 0 [tempo 130.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 130.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 4 -> 3 [tempo 130.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> ❌ FALHA: 0 [tempo 131.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❌ FALHA: 1 [tempo 131.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❌ FALHA: 2 [tempo 131.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❌ FALHA: 3 [tempo 131.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❌ FALHA: 4 [tempo 131.0]
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+  Processo 4 -> Monitorando: 0, Monitorado por: 3
+> 🔄 RECUPERACAO: 0 [tempo 151.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> 🔄 RECUPERACAO: 1 [tempo 151.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> 🔄 RECUPERACAO: 2 [tempo 151.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> 🔄 RECUPERACAO: 3 [tempo 151.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 152.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 152.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 152.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 152.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ❤️ HEARTBEAT: 0 -> 4 [tempo 157.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4
+> ❤️ HEARTBEAT: 1 -> 0 [tempo 157.0]
+  Processo 1 -> Monitorando: 2, Monitorado por: 0
+> ❤️ HEARTBEAT: 2 -> 1 [tempo 157.0]
+  Processo 2 -> Monitorando: 3, Monitorado por: 1
+> ❤️ HEARTBEAT: 3 -> 2 [tempo 157.0]
+  Processo 3 -> Monitorando: 4, Monitorado por: 2
+> ℹ️ TESTE: 0 -> 1 [tempo 161.0]
+  Processo 0 -> Monitorando: 1, Monitorado por: 4

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Algoritmo HeartRing - Explicação Detalhada</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #333;
+            --accent-color: #007acc;
+            --border-color: #e0e0e0;
+            --code-bg: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin: 2rem 0 1rem 0;
+            color: var(--accent-color);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 1.2rem 0 0.6rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        strong {
+            color: var(--accent-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .back-link:hover {
+            background-color: var(--code-bg);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">← Voltar</a>
+        <h1>Algoritmo HeartRing</h1>
+        <p>Detector de Falhas em Anel Virtual Baseado em Heartbeats</p>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>Visão Geral</h2>
+            <p>O algoritmo <strong>HeartRing</strong> implementa um detector de falhas distribuído baseado em heartbeats organizados em anel virtual. O objetivo é detectar falhas de processos e manter a conectividade do sistema através de rerouting automático.</p>
+        </div>
+
+        <div class="section">
+            <h2>Estrutura Principal</h2>
+            <ul>
+                <li><strong>Anel Virtual:</strong> Os processos são organizados em um anel lógico onde cada processo monitora apenas o próximo processo (next) e é monitorado pelo processo anterior (prev)</li>
+                <li><strong>Estados de Processo:</strong> Cada processo mantém um vetor local com o estado percebido de todos os outros processos (UNKNOWN, CORRECT, FAULT)</li>
+                <li><strong>Heartbeats:</strong> Mensagens periódicas enviadas a cada 5 segundos para indicar que o processo está vivo</li>
+                <li><strong>Timeout:</strong> Limite de 10 segundos para detectar falha quando não recebe heartbeat</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Funcionamento do Algoritmo</h2>
+            <ol>
+                <li><strong>Envio de Heartbeats:</strong> Cada processo correto envia periodicamente um heartbeat para seu monitor (processo anterior no anel)</li>
+                <li><strong>Monitoramento:</strong> Cada processo verifica se recebeu heartbeat do processo que está monitorando dentro do timeout</li>
+                <li><strong>Detecção de Falha:</strong> Se um processo não recebe heartbeat dentro do timeout, marca o processo monitorado como falho</li>
+                <li><strong>Rerouting:</strong> Quando detecta falha, o processo atualiza seus ponteiros para "pular" o processo falho, mantendo a conectividade do anel</li>
+                <li><strong>Recuperação:</strong> Quando um processo se recupera, ele é reintegrado ao anel através da atualização dos ponteiros dos processos vizinhos</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Eventos do Sistema</h2>
+            <ul>
+                <li><strong>EVENT_HEARTBEAT_TIMEOUT:</strong> Dispara o envio de heartbeat pelo processo</li>
+                <li><strong>EVENT_TEST_TIMEOUT:</strong> Dispara a verificação de timeout para detectar falhas</li>
+                <li><strong>EVENT_FAULT:</strong> Simula a falha de um processo específico</li>
+                <li><strong>EVENT_RECOVERY:</strong> Simula a recuperação de um processo falho</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Características do Algoritmo</h2>
+            <ul>
+                <li><strong>Complexidade de Mensagens:</strong> O(N) mensagens por rodada de heartbeat</li>
+                <li><strong>Detecção:</strong> Eventual - detecta falhas quando o timeout expira</li>
+                <li><strong>Cobertura:</strong> Detecta falhas de crash de processos</li>
+                <li><strong>Escalabilidade:</strong> Cada processo monitora apenas um outro processo, reduzindo a carga de monitoramento</li>
+                <li><strong>Recuperação:</strong> Suporta recuperação automática de processos com reintegração ao anel</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Modelo do Sistema</h2>
+            <ul>
+                <li><strong>Estático:</strong> Número fixo de processos conhecido a priori</li>
+                <li><strong>Fully-connected:</strong> Qualquer processo pode se comunicar diretamente com qualquer outro</li>
+                <li><strong>Assíncrono:</strong> Não há sincronização de relógios entre processos</li>
+                <li><strong>Comunicação:</strong> Baseada em troca de mensagens heartbeat</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html> 
